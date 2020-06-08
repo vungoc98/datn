@@ -38,7 +38,7 @@ Sử dụng mô hình SSD với các backbone VGG16, MobileNetv2 để áp dụn
   - !cd /train/datn_backup/training && python3 train_vgg16ssd300_last.py # VGG16 + SSD300 
   - !cd /train/datn_backup/training && python3 train_mobilenetv2ssd512_last.py # MobileNetv2 + SSD512 (scales = scales_traffic_sign)
  ## E. Evaluate
- - Chạy trên máy tính cá nhân:
+ * Chạy trên máy tính cá nhân:
  Tải các file weight tương ứng với các model, thay thế đường dẫn weight tương ứng trong biến weight_path
  cd /datn_backup/evaluation
  Sử dụng spliting image trong quá trình predict:
@@ -59,12 +59,12 @@ Sử dụng mô hình SSD với các backbone VGG16, MobileNetv2 để áp dụn
  scales = scales_traffic_sign_split
  python3 evaluate_mobilenetv2ssd512.py
  
- - Chạy trên Google Colab (tương tự)
+ * Chạy trên Google Colab (tương tự)
  
  ## F. Inference time
- - Chạy trên local:
-   cd /datn_backup/inference
-  Các thông số được thay thế tương tự như Evaluate. Sau đó chạy các file:
+ * Chạy trên local:
+ ** cd /datn_backup/inference
+ ** Các thông số được thay thế tương tự như Evaluate. Sau đó chạy các file:
  
   + python3 inference_time_vgg16ssd300.py
   + python3 inference_time_mobilenetssd512.py
