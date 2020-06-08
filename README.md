@@ -3,6 +3,7 @@ Phát hiện và nhận diện biển báo giao thông là bài toán object det
 Sử dụng mô hình SSD với các backbone VGG16, MobileNetv2 để áp dụng vào bài toán
 ## B. Cài đặt môi trương
 - Cài đặt hệ điều hành Ubuntu 16.04
+- python 3.5
 #### Clone project
   git clone https://github.com/vungoc98/datn.git
 #### Cài đặt các thư viện
@@ -29,8 +30,20 @@ Sử dụng mô hình SSD với các backbone VGG16, MobileNetv2 để áp dụn
     !cd /train/datn_backup/datasets && unzip FullIJCNN2013.zip
   - !pip3 install keras==2.2.4
  Training MobileNetv2 + SSD512 + sử dụng splitting image trong quá trình training:
-  - !cd /train/datn_backup/training && python train_mobilenetv2ssd512_last.py 
+  - !cd /train/datn_backup/training && python3 train_mobilenetv2ssd512_last.py
+  
  Training không sử dụng splitting image trong quá trình training:
  Mở file datn_backup/data_generator/object_detection_2d_data_generator.py comment từ dòng 1062 đến 1108 xong chạy
-  - !cd /train/datn_backup/training && python train_vgg16ssd300_last.py # VGG16 + SSD300 
-  - !cd /train/datn_backup/training && python train_mobilenetv2ssd512_last.py # MobileNetv2 + SSD512 
+  - !cd /train/datn_backup/training && python3 train_vgg16ssd300_last.py # VGG16 + SSD300 
+  - !cd /train/datn_backup/training && python3 train_mobilenetv2ssd512_last.py # MobileNetv2 + SSD512 
+ ## E. Evaluate (có thể chạy trên máy local)
+ Tải các file weight tương ứng với các model, thay thế đường dẫn weight tương ứng trong biến weight_path
+ cd /datn_backup/evaluation
+ - Evaluate với model VGG300 + SSD300 + splitting image trong quá trình predict
+ python3 evaluate_vgg16ssd300.py
+ - Evaluate với model MobileNetv2 + SSD512 + splitting image trong quá trình predict
+ python3 evaluate_mobilenetv2ssd512.py
+ - Evaluate với model MobileNetv2 + SSD512 + splitting image trong quá trình predict
+ 
+ 
+  
