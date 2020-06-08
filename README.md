@@ -1,7 +1,7 @@
 ## A. Giới thiệu
 Phát hiện và nhận diện biển báo giao thông là bài toán object detection
 Sử dụng mô hình SSD với các backbone VGG16, MobileNetv2 để áp dụng vào bài toán
-## B. Cài đặt môi trương
+## B. Cài đặt môi trường
 - Cài đặt hệ điều hành Ubuntu 16.04
 - python 3.5
 #### Clone project
@@ -30,20 +30,44 @@ Sử dụng mô hình SSD với các backbone VGG16, MobileNetv2 để áp dụn
     !cd /train/datn_backup/datasets && unzip FullIJCNN2013.zip
   - !pip3 install keras==2.2.4
  Training MobileNetv2 + SSD512 + sử dụng splitting image trong quá trình training:
+    scales = scales_traffic_sign_split
   - !cd /train/datn_backup/training && python3 train_mobilenetv2ssd512_last.py
   
  Training không sử dụng splitting image trong quá trình training:
  Mở file datn_backup/data_generator/object_detection_2d_data_generator.py comment từ dòng 1062 đến 1108 xong chạy
   - !cd /train/datn_backup/training && python3 train_vgg16ssd300_last.py # VGG16 + SSD300 
-  - !cd /train/datn_backup/training && python3 train_mobilenetv2ssd512_last.py # MobileNetv2 + SSD512 
+  - !cd /train/datn_backup/training && python3 train_mobilenetv2ssd512_last.py # MobileNetv2 + SSD512 (scales = scales_traffic_sign)
  ## E. Evaluate (có thể chạy trên máy local)
  Tải các file weight tương ứng với các model, thay thế đường dẫn weight tương ứng trong biến weight_path
  cd /datn_backup/evaluation
- - Evaluate với model VGG300 + SSD300 + splitting image trong quá trình predict
+ Sử dụng spliting image trong quá trình predict:
+ - Evaluate với model VGG300 + SSD300  
  python3 evaluate_vgg16ssd300.py
- - Evaluate với model MobileNetv2 + SSD512 + splitting image trong quá trình predict
+ - Evaluate với model MobileNetv2 + SSD512  
+ scales = scales_traffic_sign
+ python3 evaluate_mobilenetv2ssd512.py 
+ - Evaluate với model MobileNetv2 + SSD512 + splitting image trong quá trình training 
+ scales = scales_traffic_sign_split
  python3 evaluate_mobilenetv2ssd512.py
- - Evaluate với model MobileNetv2 + SSD512 + splitting image trong quá trình predict
  
+  Không sử dụng splitting image trong quá trình predict:
+  Mở file datn_backup/eval_utils/average_precision_evaluation.py, comment từ dòng 391 -> 457, recomment từ dòng 539 -> 575
+ - Evaluate với model VGG300 + SSD300  
+ python3 evaluate_vgg16ssd300.py 
+ - Evaluate với model MobileNetv2 + SSD512 + splitting image trong quá trình training 
+ scales = scales_traffic_sign_split
+ python3 evaluate_mobilenetv2ssd512.py
  
-  
+ ## F. Inference time
+ - Chạy trên local:
+ cd /datn_backup/inference
+ Các thông số được thay thế tương tự như Evaluate. Sau đó chạy các file:
+ python3 inference_time_vgg16ssd300.py
+ python3 inference_time_mobilenetssd512.py
+ python3 split_overlap.py
+ 
+ - Chạy trên google colab
+ Thay các thông số tương tự ở trên. Sau đó chạy:
+ cd /train/datn_backup/inference && python3 inference_time_vgg16ssd300.py
+ cd /train/datn_backup/inference && python3 inference_time_mobilenetssd512.py
+ cd /train/datn_backup/inference && python3 split_overlap.py
