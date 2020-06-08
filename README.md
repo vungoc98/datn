@@ -63,8 +63,8 @@ Sử dụng mô hình SSD với các backbone VGG16, MobileNetv2 để áp dụn
  
  ## F. Inference time
  * Chạy trên local:
- ** cd /datn_backup/inference
- ** Các thông số được thay thế tương tự như Evaluate. Sau đó chạy các file:
+  * cd /datn_backup/inference
+  * Các thông số được thay thế tương tự như Evaluate. Sau đó chạy các file:
  
   + python3 inference_time_vgg16ssd300.py
   + python3 inference_time_mobilenetssd512.py
