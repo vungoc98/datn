@@ -63,17 +63,15 @@ Sử dụng mô hình SSD với các backbone VGG16, MobileNetv2 để áp dụn
  
  ## F. Inference time
  - Chạy trên local:
-  cd /datn_backup/inference
-  Các thông số được thay thế tương tự như Evaluate. Sau đó chạy các file:
+  + cd /datn_backup/inference
+  + Các thông số được thay thế tương tự như Evaluate. Sau đó chạy các file:
  
-  python3 inference_time_vgg16ssd300.py
-  python3 inference_time_mobilenetssd512.py
-  python3 split_overlap.py
+  + python3 inference_time_vgg16ssd300.py
+  + python3 inference_time_mobilenetssd512.py
+  + python3 split_overlap.py
  
  - Chạy trên google colab
- 
-  Thay các thông số tương tự ở trên. Sau đó chạy:
- 
-  cd /train/datn_backup/inference && python3 inference_time_vgg16ssd300.py
-  cd /train/datn_backup/inference && python3 inference_time_mobilenetssd512.py
-  cd /train/datn_backup/inference && python3 split_overlap.py
+  + Thay các thông số tương tự ở trên. Sau đó chạy:
+  + cd /train/datn_backup/inference && python3 inference_time_vgg16ssd300.py
+  + cd /train/datn_backup/inference && python3 inference_time_mobilenetssd512.py
+  + cd /train/datn_backup/inference && python3 split_overlap.py
