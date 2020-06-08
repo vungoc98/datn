@@ -59,10 +59,11 @@ Sử dụng mô hình SSD với các backbone VGG16, MobileNetv2 để áp dụn
  scales = scales_traffic_sign_split
  python3 evaluate_mobilenetv2ssd512.py
  
- ####Chạy trên Google Colab (tương tự)
+ #### Chạy trên Google Colab (tương tự)
  
  ## F. Inference time
  #### Chạy trên local:
+ 
   cd /datn_backup/inference
   Các thông số được thay thế tương tự như Evaluate. Sau đó chạy các file:
  
