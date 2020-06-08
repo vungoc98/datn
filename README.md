@@ -30,9 +30,7 @@ Sử dụng mô hình SSD với các backbone VGG16, MobileNetv2 để áp dụn
   - !pip3 install keras==2.2.4
  Training MobileNetv2 + SSD512 + sử dụng splitting image trong quá trình training:
   - !cd /train/datn_backup/training && python train_mobilenetv2ssd512_last.py 
- Training VGG16 + SSD300
+ Training không sử dụng splitting image trong quá trình training:
  Mở file datn_backup/data_generator/object_detection_2d_data_generator.py comment từ dòng 1062 đến 1108 xong chạy
-  - !cd /train/datn_backup/training && python train_vgg16ssd300_last.py #VGG16 + SSD300
- Training MobileNetv2 + SSD512 
- Mở file datn_backup/data_generator/object_detection_2d_data_generator.py comment từ dòng 1062 đến 1108 xong chạy
-  !cd /train/datn_backup/training && python train_mobilenetv2ssd512_last.py 
+  - !cd /train/datn_backup/training && python train_vgg16ssd300_last.py # VGG16 + SSD300 
+  - !cd /train/datn_backup/training && python train_mobilenetv2ssd512_last.py # MobileNetv2 + SSD512 
