@@ -8,7 +8,7 @@ Sử dụng mô hình SSD với các backbone VGG16, MobileNetv2 để áp dụn
 #### Cài đặt các thư viện
   cd /datn/datn_backup/ && pip install -r requirements.txt
 ## C. Download dataset
-- Vàolink: https://sid.erda.dk/public/archives/ff17dc924eba88d5d01a807357d6614c/published-archive.html
+- Vào link: https://sid.erda.dk/public/archives/ff17dc924eba88d5d01a807357d6614c/published-archive.html
 - Download file zip: FullIJCNN2013.zip
 - unzip file FullIJCNN2013.zip
 ## D. Training project trên Google Colab
