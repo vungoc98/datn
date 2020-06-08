@@ -34,11 +34,12 @@ Sử dụng mô hình SSD với các backbone VGG16, MobileNetv2 để áp dụn
   - !cd /train/datn_backup/training && python3 train_mobilenetv2ssd512_last.py
   
  Training không sử dụng splitting image trong quá trình training:
+ 
  Mở file datn_backup/data_generator/object_detection_2d_data_generator.py comment từ dòng 1062 đến 1108 xong chạy
   - !cd /train/datn_backup/training && python3 train_vgg16ssd300_last.py # VGG16 + SSD300 
   - !cd /train/datn_backup/training && python3 train_mobilenetv2ssd512_last.py # MobileNetv2 + SSD512 (scales = scales_traffic_sign)
  ## E. Evaluate
- #### Chạy trên máy tính cá nhân:
+ #### Chạy trên máy tính cá nhân
  Tải các file weight tương ứng với các model, thay thế đường dẫn weight tương ứng trong biến weight_path
  cd /datn_backup/evaluation
  Sử dụng spliting image trong quá trình predict:
@@ -62,7 +63,7 @@ Sử dụng mô hình SSD với các backbone VGG16, MobileNetv2 để áp dụn
  #### Chạy trên Google Colab (tương tự)
  
  ## F. Inference time
- #### Chạy trên local:
+ #### Chạy trên máy tính cá 
  
   cd /datn_backup/inference
   
