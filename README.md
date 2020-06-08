@@ -37,26 +37,29 @@ Sử dụng mô hình SSD với các backbone VGG16, MobileNetv2 để áp dụn
  Mở file datn_backup/data_generator/object_detection_2d_data_generator.py comment từ dòng 1062 đến 1108 xong chạy
   - !cd /train/datn_backup/training && python3 train_vgg16ssd300_last.py # VGG16 + SSD300 
   - !cd /train/datn_backup/training && python3 train_mobilenetv2ssd512_last.py # MobileNetv2 + SSD512 (scales = scales_traffic_sign)
- ## E. Evaluate (có thể chạy trên máy local)
+ ## E. Evaluate
+ - Chạy trên máy tính cá nhân:
  Tải các file weight tương ứng với các model, thay thế đường dẫn weight tương ứng trong biến weight_path
  cd /datn_backup/evaluation
  Sử dụng spliting image trong quá trình predict:
- - Evaluate với model VGG300 + SSD300  
+ + Evaluate với model VGG300 + SSD300  
  python3 evaluate_vgg16ssd300.py
- - Evaluate với model MobileNetv2 + SSD512  
+ + Evaluate với model MobileNetv2 + SSD512  
  scales = scales_traffic_sign
  python3 evaluate_mobilenetv2ssd512.py 
- - Evaluate với model MobileNetv2 + SSD512 + splitting image trong quá trình training 
+ + Evaluate với model MobileNetv2 + SSD512 + splitting image trong quá trình training 
  scales = scales_traffic_sign_split
  python3 evaluate_mobilenetv2ssd512.py
  
   Không sử dụng splitting image trong quá trình predict:
   Mở file datn_backup/eval_utils/average_precision_evaluation.py, comment từ dòng 391 -> 457, recomment từ dòng 539 -> 575
- - Evaluate với model VGG300 + SSD300  
+ + Evaluate với model VGG300 + SSD300  
  python3 evaluate_vgg16ssd300.py 
- - Evaluate với model MobileNetv2 + SSD512 + splitting image trong quá trình training 
+ + Evaluate với model MobileNetv2 + SSD512 + splitting image trong quá trình training 
  scales = scales_traffic_sign_split
  python3 evaluate_mobilenetv2ssd512.py
+ 
+ - Chạy trên Google Colab (tương tự)
  
  ## F. Inference time
  - Chạy trên local:
